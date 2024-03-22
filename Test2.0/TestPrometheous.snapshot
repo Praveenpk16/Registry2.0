@@ -1,0 +1,319 @@
+{
+  "header" : {
+    "dataModelVersion" : "3"
+  },
+  "content" : {
+    "flowSnapshot" : {
+      "externalControllerServices" : { },
+      "flowContents" : {
+        "comments" : "",
+        "componentType" : "PROCESS_GROUP",
+        "connections" : [ {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+            "id" : "d7296bc6-92b4-3377-a222-69bfe71fa882",
+            "instanceIdentifier" : "e9e6c7ad-018d-1000-ffb2-2e5749d790de",
+            "name" : "PutFile",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+          "identifier" : "a1727ced-8b43-31fa-bdb6-adc03ed6ff68",
+          "instanceIdentifier" : "e9e6c7ae-018d-1000-ef23-95c851a90915",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+            "id" : "4bdc5054-dd6b-3d40-99bb-f486bb92c3a0",
+            "instanceIdentifier" : "e9e6c7ac-018d-1000-e1f5-70b9318d8fb5",
+            "name" : "GenerateFlowFile",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        } ],
+        "controllerServices" : [ {
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-prometheus-nar",
+            "group" : "org.apache.nifi",
+            "version" : "2.0.0-M2"
+          },
+          "comments" : "",
+          "componentType" : "CONTROLLER_SERVICE",
+          "controllerServiceApis" : [ {
+            "bundle" : {
+              "artifact" : "nifi-standard-services-api-nar",
+              "group" : "org.apache.nifi",
+              "version" : "2.0.0-M2"
+            },
+            "type" : "org.apache.nifi.record.sink.RecordSinkService"
+          } ],
+          "groupIdentifier" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+          "identifier" : "9624e772-cea4-3268-8b85-cb9e092007a8",
+          "instanceIdentifier" : "e9ef3103-018d-1000-bb9c-213f61640d54",
+          "name" : "PrometheusRecordSink",
+          "properties" : {
+            "prometheus-reporting-task-metrics-endpoint-port" : "9092",
+            "prometheus-reporting-task-instance-id" : "${hostname(true)}",
+            "prometheus-reporting-task-client-auth" : "No Authentication"
+          },
+          "propertyDescriptors" : {
+            "prometheus-reporting-task-metrics-endpoint-port" : {
+              "displayName" : "Prometheus Metrics Endpoint Port",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "prometheus-reporting-task-metrics-endpoint-port",
+              "sensitive" : false
+            },
+            "prometheus-reporting-task-ssl-context" : {
+              "displayName" : "SSL Context Service",
+              "dynamic" : false,
+              "identifiesControllerService" : true,
+              "name" : "prometheus-reporting-task-ssl-context",
+              "sensitive" : false
+            },
+            "prometheus-reporting-task-instance-id" : {
+              "displayName" : "Instance ID",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "prometheus-reporting-task-instance-id",
+              "sensitive" : false
+            },
+            "prometheus-reporting-task-client-auth" : {
+              "displayName" : "Client Authentication",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "prometheus-reporting-task-client-auth",
+              "sensitive" : false
+            }
+          },
+          "scheduledState" : "DISABLED",
+          "type" : "org.apache.nifi.reporting.prometheus.PrometheusRecordSink"
+        } ],
+        "defaultBackPressureDataSizeThreshold" : "1 GB",
+        "defaultBackPressureObjectThreshold" : 10000,
+        "defaultFlowFileExpiration" : "0 sec",
+        "executionEngine" : "INHERITED",
+        "flowFileConcurrency" : "UNBOUNDED",
+        "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+        "funnels" : [ ],
+        "identifier" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+        "inputPorts" : [ ],
+        "instanceIdentifier" : "e9e715ee-018d-1000-68dd-a1398d0b1ae4",
+        "labels" : [ ],
+        "maxConcurrentTasks" : 1,
+        "name" : "TestPrometheus",
+        "outputPorts" : [ ],
+        "position" : {
+          "x" : 720.0,
+          "y" : 1088.0
+        },
+        "processGroups" : [ ],
+        "processors" : [ {
+          "autoTerminatedRelationships" : [ "success", "failure" ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "2.0.0-M2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+          "identifier" : "d7296bc6-92b4-3377-a222-69bfe71fa882",
+          "instanceIdentifier" : "e9e6c7ad-018d-1000-ffb2-2e5749d790de",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "PutFile",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 1472.0,
+            "y" : 624.0
+          },
+          "properties" : {
+            "Create Missing Directories" : "true",
+            "Directory" : "D:/PrometheusFile",
+            "Conflict Resolution Strategy" : "fail"
+          },
+          "propertyDescriptors" : {
+            "Group" : {
+              "displayName" : "Group",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Group",
+              "sensitive" : false
+            },
+            "Owner" : {
+              "displayName" : "Owner",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Owner",
+              "sensitive" : false
+            },
+            "Create Missing Directories" : {
+              "displayName" : "Create Missing Directories",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Create Missing Directories",
+              "sensitive" : false
+            },
+            "Permissions" : {
+              "displayName" : "Permissions",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Permissions",
+              "sensitive" : false
+            },
+            "Maximum File Count" : {
+              "displayName" : "Maximum File Count",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Maximum File Count",
+              "sensitive" : false
+            },
+            "Last Modified Time" : {
+              "displayName" : "Last Modified Time",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Last Modified Time",
+              "sensitive" : false
+            },
+            "Directory" : {
+              "displayName" : "Directory",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Directory",
+              "sensitive" : false
+            },
+            "Conflict Resolution Strategy" : {
+              "displayName" : "Conflict Resolution Strategy",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Conflict Resolution Strategy",
+              "sensitive" : false
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.PutFile",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-standard-nar",
+            "group" : "org.apache.nifi",
+            "version" : "2.0.0-M2"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "c056c2a7-526a-3c0d-9473-2ddc0cf8b0be",
+          "identifier" : "4bdc5054-dd6b-3d40-99bb-f486bb92c3a0",
+          "instanceIdentifier" : "e9e6c7ac-018d-1000-e1f5-70b9318d8fb5",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "GenerateFlowFile",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 880.0,
+            "y" : 608.0
+          },
+          "properties" : {
+            "character-set" : "UTF-8",
+            "File Size" : "1kb",
+            "generate-ff-custom-text" : "Monitor MiNiFi with Prometheus and Grafana",
+            "Batch Size" : "1",
+            "Unique FlowFiles" : "false",
+            "Data Format" : "Text"
+          },
+          "propertyDescriptors" : {
+            "character-set" : {
+              "displayName" : "Character Set",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "character-set",
+              "sensitive" : false
+            },
+            "File Size" : {
+              "displayName" : "File Size",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "File Size",
+              "sensitive" : false
+            },
+            "mime-type" : {
+              "displayName" : "Mime Type",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "mime-type",
+              "sensitive" : false
+            },
+            "generate-ff-custom-text" : {
+              "displayName" : "Custom Text",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "generate-ff-custom-text",
+              "sensitive" : false
+            },
+            "Batch Size" : {
+              "displayName" : "Batch Size",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Batch Size",
+              "sensitive" : false
+            },
+            "Unique FlowFiles" : {
+              "displayName" : "Unique FlowFiles",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Unique FlowFiles",
+              "sensitive" : false
+            },
+            "Data Format" : {
+              "displayName" : "Data Format",
+              "dynamic" : false,
+              "identifiesControllerService" : false,
+              "name" : "Data Format",
+              "sensitive" : false
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "1 min",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.standard.GenerateFlowFile",
+          "yieldDuration" : "1 sec"
+        } ],
+        "remoteProcessGroups" : [ ],
+        "scheduledState" : "ENABLED",
+        "statelessFlowTimeout" : "1 min"
+      },
+      "flowEncodingVersion" : "1.0",
+      "parameterContexts" : { },
+      "parameterProviders" : { }
+    }
+  }
+}
